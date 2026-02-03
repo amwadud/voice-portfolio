@@ -16,7 +16,7 @@ body {
   padding: 0;
   background: var(--bg);
   color: var(--text);
-  font-family: "Poppins", sans-serif;
+  font-family: "Montserrat", sans-serif;
   line-height: 1.7;
   scroll-behavior: smooth;
   transition: background 0.3s ease-in-out;
