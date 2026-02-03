@@ -19,6 +19,7 @@ body {
   font-family: "Poppins", sans-serif;
   line-height: 1.7;
   scroll-behavior: smooth;
+  transition: background 0.3s ease-in-out;
 }
 
 header {
@@ -109,6 +110,76 @@ footer {
 }
 
 .visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+  header {
+    padding: 3rem 1rem 2rem;
+  }
+
+  h1 {
+    font-size: 2rem;
+  }
+
+  h2 {
+    font-size: 1.6rem;
+  }
+
+  main {
+    padding: 1.5rem;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .sample {
+    margin-bottom: 1.5rem;
+  }
+
+  footer {
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  header {
+    padding: 2rem 1rem 1rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  h2 {
+    font-size: 1.4rem;
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  p {
+    font-size: 0.9rem;
+  }
+
+  footer {
+    font-size: 0.7rem;
+  }
+}
+
+/* Default state for fade-in sections */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px); /* Optional: Adds a slight upward movement */
+  transition: opacity 1s ease-out, transform 1s ease-out; /* Smooth fade and transform effect */
+}
+
+/* When the section is in view */
+.fade-in.visible {
   opacity: 1;
   transform: translateY(0);
 }
