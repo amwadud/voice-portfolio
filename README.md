@@ -1,3 +1,3 @@
 # Voice Portfolio
 
-[Visit the repository here](https://github.com/amwadud/voice-portfolio)
+[Visit the repository here](https://amwadud.github.io/voice-portfolio)
