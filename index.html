@@ -4,474 +4,572 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Abdulwadud Ayit Al-Hajj | Voice Artist</title>
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600;700&family=Archivo:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@400;700&family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <!-- Magnetic cursor follower -->
-    <div class="cursor-follower"></div>
+    <!-- Custom cursor system -->
+    <div class="cursor-glow"></div>
+    <div class="cursor-ring"></div>
     <div class="cursor-dot"></div>
     
-    <!-- Audio-reactive background -->
-    <canvas id="audio-visualizer"></canvas>
+    <!-- 3D Background layers -->
+    <div class="bg-layer layer-1"></div>
+    <div class="bg-layer layer-2"></div>
+    <div class="bg-layer layer-3"></div>
     
-    <!-- Animated mesh gradient background -->
-    <div class="mesh-gradient"></div>
+    <!-- Animated background canvas -->
+    <canvas id="particles-canvas"></canvas>
     
-    <!-- Floating sound orbs -->
-    <div class="sound-orbs">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
+    <!-- Audio reactive background -->
+    <canvas id="audio-reactive-bg"></canvas>
+    
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-logo">
+            <span class="logo-text">AA</span>
+            <div class="logo-pulse"></div>
+        </div>
+        <div class="nav-links">
+            <a href="#about" class="nav-link">About</a>
+            <a href="#samples" class="nav-link">Samples</a>
+            <a href="#contact" class="nav-link">Contact</a>
+        </div>
+        <div class="nav-cta">
+            <a href="#contact" class="btn-nav">Hire Me</a>
+        </div>
+    </nav>
 
-    <!-- Hero section -->
-    <header>
-        <div class="hero-grid">
-            <div class="hero-left">
-                <div class="badge-container">
-                    <div class="badge">
-                        <span class="badge-dot"></span>
-                        Available for Projects
-                    </div>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <div class="status-badge">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Available for Projects</span>
+                    <div class="badge-shine"></div>
                 </div>
                 
                 <h1 class="hero-title">
-                    <span class="title-line" data-text="Abdulwadud">Abdulwadud</span>
-                    <span class="title-line" data-text="Ayit Al-Hajj">Ayit Al-Hajj</span>
+                    <span class="title-word" data-word="Abdulwadud">
+                        <span class="word-inner">Abdulwadud</span>
+                    </span>
+                    <span class="title-word" data-word="Ayit Al-Hajj">
+                        <span class="word-inner">Ayit Al-Hajj</span>
+                    </span>
                 </h1>
                 
-                <div class="hero-subtitle">
-                    <div class="subtitle-item">Voice Artist</div>
-                    <div class="subtitle-divider"></div>
-                    <div class="subtitle-item">Storyteller</div>
-                    <div class="subtitle-divider"></div>
-                    <div class="subtitle-item">VO Actor</div>
+                <div class="hero-tags">
+                    <span class="tag">Voice Artist</span>
+                    <span class="tag-separator">•</span>
+                    <span class="tag">Storyteller</span>
+                    <span class="tag-separator">•</span>
+                    <span class="tag">VO Actor</span>
                 </div>
                 
-                <p class="hero-description">
-                    Transforming scripts into immersive experiences through the power of voice. 
-                    From commanding commercials to intimate character work.
+                <p class="hero-tagline">
+                    Crafting immersive audio experiences that captivate audiences.
+                    From commanding brand voices to intimate character performances.
                 </p>
                 
-                <div class="hero-cta">
-                    <a href="#samples" class="cta-button primary">
-                        <span>Explore My Work</span>
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M5 12h14M12 5l7 7-7 7"/>
-                        </svg>
+                <div class="hero-actions">
+                    <a href="#samples" class="btn-primary">
+                        <span class="btn-text">Explore My Work</span>
+                        <span class="btn-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M5 12h14M12 5l7 7-7 7"/>
+                            </svg>
+                        </span>
+                        <div class="btn-shine"></div>
                     </a>
-                    <a href="#contact" class="cta-button secondary">
-                        <span>Let's Collaborate</span>
+                    <a href="#contact" class="btn-secondary">
+                        <span class="btn-text">Get in Touch</span>
+                        <div class="btn-ripple"></div>
                     </a>
                 </div>
             </div>
             
-            <div class="hero-right">
-                <!-- Live audio spectrum analyzer -->
-                <div class="spectrum-container">
-                    <div class="spectrum-title">LIVE SPECTRUM</div>
-                    <canvas id="spectrum-analyzer"></canvas>
-                    <div class="spectrum-info">
-                        <div class="freq-label">20Hz</div>
-                        <div class="freq-label">20kHz</div>
-                    </div>
+            <div class="hero-visual">
+                <!-- 3D Rotating sound wave -->
+                <div class="sound-orb-container">
+                    <canvas id="sound-orb-3d"></canvas>
+                    <div class="orb-glow"></div>
                 </div>
                 
-                <!-- Animated waveform graphic -->
-                <div class="hero-waveform">
-                    <svg viewBox="0 0 400 200" preserveAspectRatio="none">
-                        <path class="wave-path wave-1" d="M0,100 Q50,50 100,100 T200,100 T300,100 T400,100" />
-                        <path class="wave-path wave-2" d="M0,100 Q50,150 100,100 T200,100 T300,100 T400,100" />
-                        <path class="wave-path wave-3" d="M0,100 Q50,70 100,100 T200,100 T300,100 T400,100" />
-                    </svg>
+                <!-- Live frequency analyzer -->
+                <div class="freq-analyzer-box">
+                    <div class="analyzer-header">
+                        <span class="analyzer-label">LIVE FREQUENCY SPECTRUM</span>
+                        <span class="analyzer-status">
+                            <span class="status-indicator"></span>
+                            ACTIVE
+                        </span>
+                    </div>
+                    <canvas id="frequency-visualizer"></canvas>
+                    <div class="freq-labels">
+                        <span>20 Hz</span>
+                        <span>200 Hz</span>
+                        <span>2 kHz</span>
+                        <span>20 kHz</span>
+                    </div>
                 </div>
             </div>
         </div>
         
-        <div class="scroll-prompt">
-            <div class="scroll-text">Scroll to Discover</div>
-            <div class="scroll-line"></div>
-        </div>
-    </header>
-
-    <main>
-        <!-- Marquee section -->
-        <section class="marquee-section">
-            <div class="marquee">
-                <div class="marquee-content">
-                    <span>COMMERCIAL</span>
-                    <span class="marquee-dot">•</span>
-                    <span>NARRATION</span>
-                    <span class="marquee-dot">•</span>
-                    <span>CHARACTER</span>
-                    <span class="marquee-dot">•</span>
-                    <span>DOCUMENTARY</span>
-                    <span class="marquee-dot">•</span>
-                    <span>ANIMATION</span>
-                    <span class="marquee-dot">•</span>
-                    <span>AUDIOBOOK</span>
-                    <span class="marquee-dot">•</span>
-                    <span>COMMERCIAL</span>
-                    <span class="marquee-dot">•</span>
-                    <span>NARRATION</span>
-                    <span class="marquee-dot">•</span>
-                    <span>CHARACTER</span>
-                    <span class="marquee-dot">•</span>
-                    <span>DOCUMENTARY</span>
-                    <span class="marquee-dot">•</span>
-                    <span>ANIMATION</span>
-                    <span class="marquee-dot">•</span>
-                    <span>AUDIOBOOK</span>
-                    <span class="marquee-dot">•</span>
-                </div>
+        <!-- Scroll indicator -->
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
             </div>
-        </section>
+            <span class="scroll-text">Scroll to explore</span>
+        </div>
+    </section>
 
-        <!-- About section with split layout -->
-        <section id="about" class="reveal-section about-section">
-            <div class="split-layout">
-                <div class="split-left">
-                    <div class="section-label">
-                        <span class="label-number">01</span>
-                        <span class="label-text">ABOUT</span>
+    <!-- Parallax separator -->
+    <div class="parallax-separator">
+        <div class="separator-line"></div>
+        <div class="separator-glow"></div>
+    </div>
+
+    <!-- About Section -->
+    <section id="about" class="section-about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">
+                    <span class="title-main">The Voice Behind</span>
+                    <span class="title-accent">Your Story</span>
+                </h2>
+            </div>
+            
+            <div class="about-grid">
+                <div class="about-content">
+                    <p class="about-lead">
+                        I'm Abdulwadud, a passionate voice artist dedicated to bringing 
+                        emotion and authenticity to every performance.
+                    </p>
+                    <p class="about-body">
+                        With years of experience across multiple genres and styles, I specialize 
+                        in creating voices that resonate deeply. Whether commanding commercial 
+                        presence, intimate narrative tones, or dynamic character work — I bring 
+                        your vision to life through the art of voice.
+                    </p>
+                    
+                    <div class="about-features">
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Professional Quality</h4>
+                                <p>Studio-grade equipment and production</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Fast Turnaround</h4>
+                                <p>Quick delivery without compromising quality</p>
+                            </div>
+                        </div>
+                        
+                        <div class="feature-item">
+                            <div class="feature-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                    <polyline points="7 10 12 15 17 10"/>
+                                    <line x1="12" y1="15" x2="12" y2="3"/>
+                                </svg>
+                            </div>
+                            <div class="feature-text">
+                                <h4>Multiple Revisions</h4>
+                                <p>Until you're completely satisfied</p>
+                            </div>
+                        </div>
                     </div>
-                    <h2 class="section-title">
-                        The Voice <br/>
-                        Behind Your <br/>
-                        <span class="gradient-text">Story</span>
-                    </h2>
                 </div>
                 
-                <div class="split-right">
-                    <div class="about-text">
-                        <p class="large-text">
-                            I'm Abdulwadud, a passionate voice artist dedicated to bringing emotion 
-                            and authenticity to every performance.
-                        </p>
-                        <p>
-                            With years of experience across multiple genres and styles, I specialize in 
-                            creating voices that resonate. Whether it's a commanding commercial presence, 
-                            an intimate narrative tone, or dynamic character work, my goal is to make 
-                            your project unforgettable.
-                        </p>
+                <div class="about-stats">
+                    <div class="stat-card" data-tilt>
+                        <div class="stat-icon">
+                            <div class="icon-ring"></div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="stat-value">
+                            <span class="stat-number" data-count="500">0</span>
+                            <span class="stat-plus">+</span>
+                        </div>
+                        <div class="stat-label">Projects Completed</div>
+                        <div class="stat-glow"></div>
                     </div>
                     
-                    <div class="stats-showcase">
-                        <div class="stat-block">
-                            <div class="stat-visual">
-                                <div class="stat-circle">
-                                    <svg viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45" class="stat-bg"/>
-                                        <circle cx="50" cy="50" r="45" class="stat-progress" style="--progress: 85;"/>
-                                    </svg>
-                                    <div class="stat-value">500+</div>
-                                </div>
-                            </div>
-                            <div class="stat-label">Completed Projects</div>
+                    <div class="stat-card" data-tilt>
+                        <div class="stat-icon">
+                            <div class="icon-ring"></div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 2a3 3 0 0 0-3 3v4a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3z"/>
+                                <path d="M19 10v2a7 7 0 0 1-14 0v-2"/>
+                            </svg>
                         </div>
-                        
-                        <div class="stat-block">
-                            <div class="stat-visual">
-                                <div class="stat-circle">
-                                    <svg viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45" class="stat-bg"/>
-                                        <circle cx="50" cy="50" r="45" class="stat-progress" style="--progress: 60;"/>
-                                    </svg>
-                                    <div class="stat-value">15+</div>
-                                </div>
-                            </div>
-                            <div class="stat-label">Voice Styles</div>
+                        <div class="stat-value">
+                            <span class="stat-number" data-count="15">0</span>
+                            <span class="stat-plus">+</span>
                         </div>
-                        
-                        <div class="stat-block">
-                            <div class="stat-visual">
-                                <div class="stat-circle">
-                                    <svg viewBox="0 0 100 100">
-                                        <circle cx="50" cy="50" r="45" class="stat-bg"/>
-                                        <circle cx="50" cy="50" r="45" class="stat-progress" style="--progress: 100;"/>
-                                    </svg>
-                                    <div class="stat-value">∞</div>
-                                </div>
-                            </div>
-                            <div class="stat-label">Character Range</div>
+                        <div class="stat-label">Voice Styles</div>
+                        <div class="stat-glow"></div>
+                    </div>
+                    
+                    <div class="stat-card" data-tilt>
+                        <div class="stat-icon">
+                            <div class="icon-ring"></div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
                         </div>
+                        <div class="stat-value">
+                            <span class="stat-number infinity">∞</span>
+                        </div>
+                        <div class="stat-label">Character Range</div>
+                        <div class="stat-glow"></div>
                     </div>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Voice samples with advanced audio players -->
-        <section id="samples" class="reveal-section samples-section">
-            <div class="section-header-center">
-                <div class="section-label centered">
-                    <span class="label-number">02</span>
-                    <span class="label-text">VOICE SAMPLES</span>
-                </div>
-                <h2 class="section-title centered">
-                    Listen to My <span class="gradient-text">Range</span>
+    <!-- Voice Samples Section -->
+    <section id="samples" class="section-samples">
+        <div class="container">
+            <div class="section-header centered">
+                <span class="section-number">02</span>
+                <h2 class="section-title">
+                    <span class="title-main">Voice Samples</span>
+                    <span class="title-accent">Hear the Difference</span>
                 </h2>
             </div>
 
-            <div class="samples-showcase">
+            <div class="samples-grid">
                 <!-- Commercial Sample -->
-                <div class="sample-card magnetic-element" data-sample="commercial">
-                    <div class="sample-decoration">
-                        <div class="decoration-line"></div>
+                <div class="sample-card" data-tilt data-category="commercial">
+                    <div class="card-bg-effect"></div>
+                    <div class="card-border"></div>
+                    
+                    <div class="sample-header">
+                        <div class="sample-icon">
+                            <div class="icon-pulse"></div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M11 5L6 9H2v6h4l5 4V5z"/>
+                                <path d="M15.54 8.46a5 5 0 010 7.07"/>
+                                <path d="M19.07 4.93a10 10 0 010 14.14"/>
+                            </svg>
+                        </div>
+                        <div class="sample-info">
+                            <span class="sample-category">Commercial</span>
+                            <h3 class="sample-name">Brand Voice Power</h3>
+                        </div>
                     </div>
                     
-                    <div class="sample-content">
-                        <div class="sample-meta">
-                            <div class="sample-category">Commercial</div>
-                            <div class="sample-duration">0:00</div>
+                    <p class="sample-description">
+                        Dynamic, persuasive delivery that commands attention and drives 
+                        consumer action. Perfect for high-impact advertising.
+                    </p>
+                    
+                    <div class="audio-player">
+                        <button class="player-toggle" aria-label="Play audio">
+                            <div class="toggle-bg"></div>
+                            <svg class="icon-play" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24">
+                                <rect x="6" y="4" width="4" height="16"/>
+                                <rect x="14" y="4" width="4" height="16"/>
+                            </svg>
+                            <div class="toggle-ripple"></div>
+                        </button>
+                        
+                        <div class="player-waveform">
+                            <canvas class="waveform-canvas"></canvas>
+                            <div class="waveform-progress"></div>
+                            <div class="waveform-scrubber"></div>
                         </div>
                         
-                        <h3 class="sample-title">Brand Voice Power</h3>
-                        <p class="sample-desc">Energetic, persuasive delivery that commands attention and drives action</p>
-                        
-                        <div class="audio-interface">
-                            <button class="play-button" aria-label="Play sample">
-                                <div class="play-circle">
-                                    <svg class="icon-play" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                    <svg class="icon-pause" viewBox="0 0 24 24">
-                                        <rect x="6" y="4" width="4" height="16"/>
-                                        <rect x="14" y="4" width="4" height="16"/>
-                                    </svg>
-                                </div>
-                                <div class="play-ripple"></div>
-                            </button>
-                            
-                            <div class="waveform-display">
-                                <canvas class="waveform-canvas" width="600" height="80"></canvas>
-                                <div class="waveform-overlay"></div>
-                            </div>
-                            
-                            <div class="volume-control">
-                                <svg viewBox="0 0 24 24" class="volume-icon">
-                                    <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-                                    <path d="M15.54 8.46a5 5 0 010 7.07"/>
-                                </svg>
-                            </div>
+                        <div class="player-time">
+                            <span class="time-current">0:00</span>
+                            <span class="time-separator">/</span>
+                            <span class="time-duration">0:00</span>
                         </div>
-                        
-                        <div class="time-tracker">
-                            <div class="time-current">0:00</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                            <div class="time-total">0:00</div>
-                        </div>
+                    </div>
+                    
+                    <div class="sample-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            30 sec
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                            High Energy
+                        </span>
                     </div>
                     
                     <audio src="samples/commercial.mp3" preload="metadata"></audio>
                 </div>
 
                 <!-- Narration Sample -->
-                <div class="sample-card magnetic-element" data-sample="narration">
-                    <div class="sample-decoration">
-                        <div class="decoration-line"></div>
+                <div class="sample-card" data-tilt data-category="narration">
+                    <div class="card-bg-effect"></div>
+                    <div class="card-border"></div>
+                    
+                    <div class="sample-header">
+                        <div class="sample-icon">
+                            <div class="icon-pulse"></div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 19.5A2.5 2.5 0 016.5 17H20"/>
+                                <path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/>
+                            </svg>
+                        </div>
+                        <div class="sample-info">
+                            <span class="sample-category">Narration</span>
+                            <h3 class="sample-name">Storytelling Mastery</h3>
+                        </div>
                     </div>
                     
-                    <div class="sample-content">
-                        <div class="sample-meta">
-                            <div class="sample-category">Narration</div>
-                            <div class="sample-duration">0:00</div>
+                    <p class="sample-description">
+                        Compelling, immersive narration that draws listeners into the story. 
+                        Ideal for documentaries, audiobooks, and educational content.
+                    </p>
+                    
+                    <div class="audio-player">
+                        <button class="player-toggle" aria-label="Play audio">
+                            <div class="toggle-bg"></div>
+                            <svg class="icon-play" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24">
+                                <rect x="6" y="4" width="4" height="16"/>
+                                <rect x="14" y="4" width="4" height="16"/>
+                            </svg>
+                            <div class="toggle-ripple"></div>
+                        </button>
+                        
+                        <div class="player-waveform">
+                            <canvas class="waveform-canvas"></canvas>
+                            <div class="waveform-progress"></div>
+                            <div class="waveform-scrubber"></div>
                         </div>
                         
-                        <h3 class="sample-title">Storytelling Mastery</h3>
-                        <p class="sample-desc">Compelling, immersive narration for documentaries and audiobooks</p>
-                        
-                        <div class="audio-interface">
-                            <button class="play-button" aria-label="Play sample">
-                                <div class="play-circle">
-                                    <svg class="icon-play" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                    <svg class="icon-pause" viewBox="0 0 24 24">
-                                        <rect x="6" y="4" width="4" height="16"/>
-                                        <rect x="14" y="4" width="4" height="16"/>
-                                    </svg>
-                                </div>
-                                <div class="play-ripple"></div>
-                            </button>
-                            
-                            <div class="waveform-display">
-                                <canvas class="waveform-canvas" width="600" height="80"></canvas>
-                                <div class="waveform-overlay"></div>
-                            </div>
-                            
-                            <div class="volume-control">
-                                <svg viewBox="0 0 24 24" class="volume-icon">
-                                    <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-                                    <path d="M15.54 8.46a5 5 0 010 7.07"/>
-                                </svg>
-                            </div>
+                        <div class="player-time">
+                            <span class="time-current">0:00</span>
+                            <span class="time-separator">/</span>
+                            <span class="time-duration">0:00</span>
                         </div>
-                        
-                        <div class="time-tracker">
-                            <div class="time-current">0:00</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                            <div class="time-total">0:00</div>
-                        </div>
+                    </div>
+                    
+                    <div class="sample-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            45 sec
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                            Warm & Clear
+                        </span>
                     </div>
                     
                     <audio src="samples/narration.mp3" preload="metadata"></audio>
                 </div>
 
                 <!-- Character Sample -->
-                <div class="sample-card magnetic-element" data-sample="character">
-                    <div class="sample-decoration">
-                        <div class="decoration-line"></div>
+                <div class="sample-card" data-tilt data-category="character">
+                    <div class="card-bg-effect"></div>
+                    <div class="card-border"></div>
+                    
+                    <div class="sample-header">
+                        <div class="sample-icon">
+                            <div class="icon-pulse"></div>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
+                                <line x1="16" y1="8" x2="2" y2="22"/>
+                                <line x1="17.5" y1="15" x2="9" y2="15"/>
+                            </svg>
+                        </div>
+                        <div class="sample-info">
+                            <span class="sample-category">Character</span>
+                            <h3 class="sample-name">Character Versatility</h3>
+                        </div>
                     </div>
                     
-                    <div class="sample-content">
-                        <div class="sample-meta">
-                            <div class="sample-category">Character</div>
-                            <div class="sample-duration">0:00</div>
+                    <p class="sample-description">
+                        Dynamic character voices ranging from heroes to villains. 
+                        Perfect for animation, video games, and audio drama.
+                    </p>
+                    
+                    <div class="audio-player">
+                        <button class="player-toggle" aria-label="Play audio">
+                            <div class="toggle-bg"></div>
+                            <svg class="icon-play" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z"/>
+                            </svg>
+                            <svg class="icon-pause" viewBox="0 0 24 24">
+                                <rect x="6" y="4" width="4" height="16"/>
+                                <rect x="14" y="4" width="4" height="16"/>
+                            </svg>
+                            <div class="toggle-ripple"></div>
+                        </button>
+                        
+                        <div class="player-waveform">
+                            <canvas class="waveform-canvas"></canvas>
+                            <div class="waveform-progress"></div>
+                            <div class="waveform-scrubber"></div>
                         </div>
                         
-                        <h3 class="sample-title">Character Versatility</h3>
-                        <p class="sample-desc">Dynamic voice acting for animation, gaming, and character work</p>
-                        
-                        <div class="audio-interface">
-                            <button class="play-button" aria-label="Play sample">
-                                <div class="play-circle">
-                                    <svg class="icon-play" viewBox="0 0 24 24">
-                                        <path d="M8 5v14l11-7z"/>
-                                    </svg>
-                                    <svg class="icon-pause" viewBox="0 0 24 24">
-                                        <rect x="6" y="4" width="4" height="16"/>
-                                        <rect x="14" y="4" width="4" height="16"/>
-                                    </svg>
-                                </div>
-                                <div class="play-ripple"></div>
-                            </button>
-                            
-                            <div class="waveform-display">
-                                <canvas class="waveform-canvas" width="600" height="80"></canvas>
-                                <div class="waveform-overlay"></div>
-                            </div>
-                            
-                            <div class="volume-control">
-                                <svg viewBox="0 0 24 24" class="volume-icon">
-                                    <path d="M11 5L6 9H2v6h4l5 4V5z"/>
-                                    <path d="M15.54 8.46a5 5 0 010 7.07"/>
-                                </svg>
-                            </div>
+                        <div class="player-time">
+                            <span class="time-current">0:00</span>
+                            <span class="time-separator">/</span>
+                            <span class="time-duration">0:00</span>
                         </div>
-                        
-                        <div class="time-tracker">
-                            <div class="time-current">0:00</div>
-                            <div class="progress-bar">
-                                <div class="progress-fill"></div>
-                                <div class="progress-thumb"></div>
-                            </div>
-                            <div class="time-total">0:00</div>
-                        </div>
+                    </div>
+                    
+                    <div class="sample-meta">
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                            40 sec
+                        </span>
+                        <span class="meta-item">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M9 18V5l12-2v13"/>
+                                <circle cx="6" cy="18" r="3"/>
+                                <circle cx="18" cy="16" r="3"/>
+                            </svg>
+                            Versatile
+                        </span>
                     </div>
                     
                     <audio src="samples/character.mp3" preload="metadata"></audio>
                 </div>
             </div>
-        </section>
+        </div>
+    </section>
 
-        <!-- Contact section -->
-        <section id="contact" class="reveal-section contact-section">
-            <div class="contact-container">
-                <div class="contact-header">
-                    <div class="section-label">
-                        <span class="label-number">03</span>
-                        <span class="label-text">GET IN TOUCH</span>
-                    </div>
+    <!-- Contact Section -->
+    <section id="contact" class="section-contact">
+        <div class="container">
+            <div class="contact-wrapper">
+                <div class="contact-content">
+                    <span class="section-number">03</span>
                     <h2 class="section-title">
-                        Let's Create <br/>
-                        Something <br/>
-                        <span class="gradient-text">Extraordinary</span>
+                        <span class="title-main">Let's Create</span>
+                        <span class="title-accent">Something Extraordinary</span>
                     </h2>
-                    <p class="contact-intro">
-                        Ready to elevate your project with professional voice work? 
-                        I'm available for commercials, audiobooks, gaming, animation, and more.
+                    <p class="contact-description">
+                        Ready to bring your project to life with professional voice work? 
+                        I'm available for collaborations worldwide.
                     </p>
                 </div>
-
-                <div class="contact-grid">
-                    <a href="mailto:aitelhaj.abdelouadoud.reachme@proton.me" class="contact-item magnetic-element">
-                        <div class="contact-icon-wrapper">
-                            <div class="icon-bg"></div>
-                            <svg viewBox="0 0 24 24" class="contact-icon">
+                
+                <div class="contact-methods">
+                    <a href="mailto:aitelhaj.abdelouadoud.reachme@proton.me" class="contact-link" data-tilt>
+                        <div class="link-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
                         </div>
-                        <div class="contact-info">
-                            <div class="contact-label">Email</div>
-                            <div class="contact-value">aitelhaj.abdelouadoud.reachme@proton.me</div>
+                        <div class="link-content">
+                            <span class="link-label">Email</span>
+                            <span class="link-value">aitelhaj.abdelouadoud.reachme@proton.me</span>
                         </div>
-                        <div class="contact-arrow">→</div>
+                        <div class="link-arrow">→</div>
+                        <div class="link-glow"></div>
                     </a>
-
-                    <a href="https://linkedin.com/in/amwadud" target="_blank" class="contact-item magnetic-element">
-                        <div class="contact-icon-wrapper">
-                            <div class="icon-bg"></div>
-                            <svg viewBox="0 0 24 24" class="contact-icon">
+                    
+                    <a href="https://linkedin.com/in/amwadud" target="_blank" class="contact-link" data-tilt>
+                        <div class="link-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"/>
                                 <circle cx="4" cy="4" r="2"/>
                             </svg>
                         </div>
-                        <div class="contact-info">
-                            <div class="contact-label">LinkedIn</div>
-                            <div class="contact-value">linkedin.com/in/amwadud</div>
+                        <div class="link-content">
+                            <span class="link-label">LinkedIn</span>
+                            <span class="link-value">linkedin.com/in/amwadud</span>
                         </div>
-                        <div class="contact-arrow">→</div>
+                        <div class="link-arrow">→</div>
+                        <div class="link-glow"></div>
                     </a>
-
-                    <a href="https://www.youtube.com/channel/UCFsvMcFLXcJWVAWui1LAPUg" target="_blank" class="contact-item magnetic-element">
-                        <div class="contact-icon-wrapper">
-                            <div class="icon-bg"></div>
-                            <svg viewBox="0 0 24 24" class="contact-icon">
+                    
+                    <a href="https://www.youtube.com/channel/UCFsvMcFLXcJWVAWui1LAPUg" target="_blank" class="contact-link" data-tilt>
+                        <div class="link-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                 <path d="M22.54 6.42a2.78 2.78 0 00-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 00-1.94 2A29 29 0 001 11.75a29 29 0 00.46 5.33A2.78 2.78 0 003.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 001.94-2 29 29 0 00.46-5.25 29 29 0 00-.46-5.33z"/>
                                 <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02"/>
                             </svg>
                         </div>
-                        <div class="contact-info">
-                            <div class="contact-label">YouTube</div>
-                            <div class="contact-value">Al-asmarani Channel</div>
+                        <div class="link-content">
+                            <span class="link-label">YouTube</span>
+                            <span class="link-value">Al-asmarani Channel</span>
                         </div>
-                        <div class="contact-arrow">→</div>
+                        <div class="link-arrow">→</div>
+                        <div class="link-glow"></div>
                     </a>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
+    </section>
 
-    <footer>
-        <div class="footer-content">
-            <div class="footer-top">
-                <div class="footer-brand">
-                    <div class="footer-logo">AA</div>
-                    <div class="footer-tagline">Every voice tells a story</div>
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <div class="brand-logo">
+                    <span class="logo-text">AA</span>
+                    <div class="logo-orbit"></div>
                 </div>
-                <div class="footer-links">
-                    <a href="#about">About</a>
-                    <a href="#samples">Samples</a>
-                    <a href="#contact">Contact</a>
-                </div>
+                <p class="brand-tagline">Every voice tells a story</p>
             </div>
+            
+            <div class="footer-nav">
+                <a href="#about">About</a>
+                <a href="#samples">Samples</a>
+                <a href="#contact">Contact</a>
+            </div>
+            
             <div class="footer-bottom">
                 <p>© 2025 Abdulwadud Ayit Al-Hajj. All rights reserved.</p>
-                <p>Crafted with passion for storytelling</p>
+                <p class="footer-craft">Crafted with passion for storytelling</p>
             </div>
         </div>
     </footer>
 
-    <script src="js/script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
